@@ -1,0 +1,35 @@
+{
+  "name": "productive-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Productive.io — supports stdio and HTTP transports",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "dev:http": "tsx src/index.ts --http",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http"
+  },
+  "keywords": [
+    "mcp",
+    "productive",
+    "productive.io",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "express": "^5.2.1",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
