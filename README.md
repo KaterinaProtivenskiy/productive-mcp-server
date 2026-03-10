@@ -188,4 +188,5 @@ The server implements automatic retry with exponential backoff for 429 responses
 
 ## License
 
-MIT
+
+
