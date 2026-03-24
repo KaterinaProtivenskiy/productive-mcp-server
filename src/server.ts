@@ -7,6 +7,12 @@ import { registerDealTools } from "./tools/deals.js";
 import { registerCompanyTools } from "./tools/companies.js";
 import { registerBookingTools } from "./tools/bookings.js";
 import { registerServiceTools } from "./tools/services.js";
+import { registerInvoiceTools } from "./tools/invoices.js";
+import { registerLineItemTools } from "./tools/line-items.js";
+import { registerInvoiceAttributionTools } from "./tools/invoice-attributions.js";
+import { registerDocumentTypeTools } from "./tools/document-types.js";
+import { registerSubsidiaryTools } from "./tools/subsidiaries.js";
+import { registerTaxRateTools } from "./tools/tax-rates.js";
 
 export function createServer(): McpServer {
   const server = new McpServer({
@@ -22,6 +28,12 @@ export function createServer(): McpServer {
   registerCompanyTools(server);
   registerBookingTools(server);
   registerServiceTools(server);
+  registerInvoiceTools(server);
+  registerLineItemTools(server);
+  registerInvoiceAttributionTools(server);
+  registerDocumentTypeTools(server);
+  registerSubsidiaryTools(server);
+  registerTaxRateTools(server);
 
   return server;
 }

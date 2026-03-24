@@ -168,6 +168,28 @@ Add to your VS Code user settings JSON (`.vscode/settings.json` or user settings
 | `productive_list_bookings` | List bookings | `person_id`, `project_id`, `after`, `before` |
 | `productive_list_services` | List services | `deal_id` |
 
+### Invoicing Tools (Draft Only)
+
+All invoice tools create and manage **draft invoices only**. Finalization (assigning an invoice number) must always be done manually in the Productive.io UI.
+
+| Tool | Description | Key Parameters |
+|---|---|---|
+| `productive_list_invoices` | List/filter invoices | `company_id`, `deal_id`, `invoice_status`, date range |
+| `productive_get_invoice` | Get full invoice details with line items | `id` |
+| `productive_create_invoice` | Create a new empty draft invoice | `company_id`, `document_type_id`, `subsidiary_id` |
+| `productive_update_invoice` | Update a draft invoice | `id`, `subject`, `note`, dates |
+| `productive_create_invoice_from_previous` | Clone an invoice (line items + budget links) | `source_invoice_id`, optional overrides |
+| `productive_create_invoice_like_last_for_client` | Clone a client's most recent invoice | `company_id`, `how_many_back` |
+| `productive_list_line_items` | List line items for an invoice | `invoice_id` |
+| `productive_create_line_item` | Add a line item to a draft invoice | `invoice_id`, `description`, `quantity`, `unit_price`, `unit_id` |
+| `productive_update_line_item` | Update an existing line item | `id`, `description`, `quantity`, `unit_price` |
+| `productive_delete_line_item` | Delete a line item | `id` |
+| `productive_list_invoice_attributions` | List budget links for an invoice | `invoice_id` |
+| `productive_create_invoice_attribution` | Link a draft invoice to a budget | `invoice_id`, `deal_id`, `amount` |
+| `productive_list_document_types` | List available document types | `subsidiary_id`, `status` |
+| `productive_list_subsidiaries` | List your company subsidiaries | `status` |
+| `productive_list_tax_rates` | List available tax rates | `status` |
+
 All list tools support `page`, `page_size`, and `sort` parameters.
 
 ## Testing with MCP Inspector
@@ -187,6 +209,3 @@ Productive.io enforces:
 The server implements automatic retry with exponential backoff for 429 responses (up to 3 retries).
 
 ## License
-
-
-

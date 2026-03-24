@@ -69,6 +69,12 @@ export class ProductiveClient {
     return response as JsonApiSingleDocument;
   }
 
+  /** DELETE a resource by ID */
+  async delete(endpoint: string, id: string): Promise<void> {
+    const url = `${this.baseUrl}/${endpoint}/${id}`;
+    await this.request("DELETE", url);
+  }
+
   private buildListUrl(endpoint: string, params?: ListParams): string {
     const url = new URL(`${this.baseUrl}/${endpoint}`);
     const page = params?.page ?? 1;
