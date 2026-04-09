@@ -40,6 +40,7 @@ export function registerLineItemTools(server: McpServer): void {
         page: args.page,
         pageSize: args.page_size,
         filters: { invoice_id: args.invoice_id },
+        include: "tax_rate",
       });
 
       const lineItems = Array.isArray(result.data) ? result.data.map(formatLineItem) : [];

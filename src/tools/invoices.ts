@@ -391,6 +391,7 @@ async function cloneInvoice(sourceId: string, overrides: CloneOverrides) {
   const lineItemsResult = await client.list("line_items", {
     filters: { invoice_id: sourceId },
     pageSize: 200,
+    include: "tax_rate",
   });
   const sourceLineItems = Array.isArray(lineItemsResult.data) ? lineItemsResult.data : [];
   console.error(`[clone] Found ${sourceLineItems.length} line item(s)`);
